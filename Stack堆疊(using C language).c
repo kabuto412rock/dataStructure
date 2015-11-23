@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define size 20
+#define size 20			// 堆疊大小           
 int* createStack();
 int push(int* stack, int* top, int data);
 int pop(int* stack ,int* top);
@@ -44,13 +44,21 @@ int main()
     *top = -1;
 
     int i = 0;
-    for(i=0;i<30;i++){
-	printf("Push %d 到堆疊stack裡\n", i+1); 
-	push(stack, top, i+1);   // 將1~20由小到大依序推入堆疊stack
+    for(i=0;i<30;i++){		     // 嘗試進行多次push，確認pop過多也不會出錯
+	if(isFull(top) == 1) {
+	    printf("堆疊：我push不進去啦～！\n");
+	}else {
+	    printf("Push %d 到堆疊stack裡\n", i+1); 
+	    push(stack, top, i+1);   
+    	}
     }
-     for(i=0;i<30;i++){
-	int data = pop(stack, top);   // 從堆疊stack依序取出值
-	printf("從堆疊stack裡Pop出%d\n", data); 
+     for(i=0;i<30;i++){		     // 嘗試進行多次pop,確認pop過多也不會出錯	    
+	if(isEmpty(top) == 1) {
+	    printf("堆疊：你叫我pop, 可是我已經空空啦~!\n");
+	}else {
+	    int data = pop(stack, top);   // 從堆疊stack依序取出值
+	    printf("從堆疊stack裡Pop出%d\n", data); 
+	}
     }
  
     return 0;
