@@ -42,7 +42,7 @@ int main()
     long size = 11111;
     int i = 0;
     for(i=0;i<size;i++){
-	push(stack,i+1);    // push 1~20
+	push(stack,i+1);    // push 1~size
     }    
 
     for(i=0;i<size;i++) {
